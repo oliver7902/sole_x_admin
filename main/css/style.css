@@ -1095,6 +1095,8 @@ File: scss
   z-index: 50; }
   .topbar .navbar-collapse {
     padding: 0px;
+    width: 100%;
+    text-align: right;
     border-bottom: 1px solid rgba(120, 130, 140, 0.13); }
   .topbar .top-navbar {
     min-height: 70px;
@@ -1128,7 +1130,9 @@ File: scss
     .topbar .top-navbar .navbar-nav > .nav-item.show {
       background: rgba(0, 0, 0, 0.05); }
   .topbar .u-pro {
-    margin-left: 10px; }
+    margin-left: 10px;
+    text-align: left;
+    }
   .topbar .profile-pic {
     white-space: nowrap;
     padding-left: 15px;

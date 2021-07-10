@@ -16,6 +16,16 @@
     <link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" rel="stylesheet">
     <!-- This page CSS -->
+    <!-- Page plugins css -->
+    <link href="../assets/node_modules/clockpicker/dist/jquery-clockpicker.min.css" rel="stylesheet">
+    <!-- Color picker plugins css -->
+    <link href="../assets/node_modules/jquery-asColorPicker-master/dist/css/asColorPicker.css" rel="stylesheet">
+    <!-- Date picker plugins css -->
+    <link href="../assets/node_modules/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+    <!-- Daterange picker plugins css -->
+    <link href="../assets/node_modules/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="../assets/node_modules/daterangepicker/daterangepicker.css" rel="stylesheet">
+
     <!-- chartist CSS -->
     <link href="../assets/node_modules/morrisjs/morris.css" rel="stylesheet">
     <!--c3 CSS -->
@@ -160,19 +170,19 @@
                 <!-- search -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-10">
                                         <form class="mt-4">
                                             <div class="form-group">
                                                 <input type="" class="form-control" id="exampleInputPassword1" placeholder="Transaction Hash/ Address">
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="col-lg-4 m-0">
-                                        <form class="mt-4">
+                                    <div class="col-lg-2">
+                                         <form class="mt-4">
                                            <button type="submit" class="btn btn-primary">Search</button>
                                         </form>
                                     </div>
@@ -180,9 +190,26 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-subtitle m-t-5">기간을 설정하세요.(기본 금일데이터(00시00분 ~ 23시59분 출력)</h6>
+                                <div class='input-group mb-3'>
+                                    <input type='text' class="form-control shawCalRanges" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <span class="ti-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
-                <!-- Info box -->
+                <!-- deta -->
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- Column -->
@@ -263,16 +290,31 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex p-10 no-block">
+                                    <div class="align-slef-center">
+                                        <h2 class="m-b-0">CSV 다운로드</h2>
+                                        <h6 class="text-muted m-b-0">검색된 데이터를 다운로드하세요.</h6>
+                                    </div>
+                                    <div class="align-self-center display-6 ml-auto"><a href="javascript:void(0)"><i class="text-warning fas fa-download"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <!-- ============================================================== -->
                 <!-- End Info box -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
-                <!-- Sales Chart-->
+                <!-- Daily Chart-->
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- Column -->
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 col-md-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex no-block">
@@ -284,6 +326,31 @@
                                             <li><i class="fa fa-circle text-success"></i> 신규가입자</li>
                                             <li><i class="fa fa-circle text-info"></i> 콘텐츠 등록</li>
                                             <li><i class="fa fa-circle text-primary"></i> 콘텐츠 거래</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="" id="sales-chart" style="height: 355px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Daily Chart -->
+                <!-- ============================================================== -->
+                <!-- Traffic Chart-->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-12 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex no-block">
+                                    <div>
+                                        <h5 class="card-title m-b-0">Traffic Chart</h5>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <ul class="list-inline text-center font-12">
+                                            <li><i class="fa fa-circle text-success"></i> 방문자 수</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -473,8 +540,6 @@
                 <!-- End Page Content -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
-
-            </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
@@ -524,6 +589,239 @@
     <!-- Chart JS -->
     <script src="js/dashboard1.js"></script>
     <!-- ============================================================== -->
+    <!--stickey kit -->
+    <script src="../assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="../assets/node_modules/sparkline/jquery.sparkline.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="../assets/node_modules/moment/moment.js"></script>
+    <!-- Clock Plugin JavaScript -->
+    <script src="../assets/node_modules/clockpicker/dist/jquery-clockpicker.min.js"></script>
+    <!-- Color Picker Plugin JavaScript -->
+    <script src="../assets/node_modules/jquery-asColor/dist/jquery-asColor.js"></script>
+    <script src="../assets/node_modules/jquery-asGradient/dist/jquery-asGradient.js"></script>
+    <script src="../assets/node_modules/jquery-asColorPicker-master/dist/jquery-asColorPicker.min.js"></script>
+    <!-- Date Picker Plugin JavaScript -->
+    <script src="../assets/node_modules/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <!-- Date range Plugin JavaScript -->
+    <script src="../assets/node_modules/timepicker/bootstrap-timepicker.min.js"></script>
+    <script src="../assets/node_modules/daterangepicker/daterangepicker.js"></script>
+    <script>
+    /*******************************************/
+    // Basic Date Range Picker
+    /*******************************************/
+    $('.daterange').daterangepicker();
+
+    /*******************************************/
+    // Date & Time
+    /*******************************************/
+    $('.datetime').daterangepicker({
+        timePicker: true,
+        timePickerIncrement: 30,
+        locale: {
+            format: 'MM/DD/YYYY h:mm A'
+        }
+    });
+
+    /*******************************************/
+    //Calendars are not linked
+    /*******************************************/
+    $('.timeseconds').daterangepicker({
+        timePicker: true,
+        timePickerIncrement: 30,
+        timePicker24Hour: true,
+        timePickerSeconds: true,
+        locale: {
+            format: 'MM-DD-YYYY h:mm:ss'
+        }
+    });
+
+    /*******************************************/
+    // Single Date Range Picker
+    /*******************************************/
+    $('.singledate').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true
+    });
+
+    /*******************************************/
+    // Auto Apply Date Range
+    /*******************************************/
+    $('.autoapply').daterangepicker({
+        autoApply: true,
+    });
+
+    /*******************************************/
+    // Calendars are not linked
+    /*******************************************/
+    $('.linkedCalendars').daterangepicker({
+        linkedCalendars: false,
+    });
+
+    /*******************************************/
+    // Date Limit
+    /*******************************************/
+    $('.dateLimit').daterangepicker({
+        dateLimit: {
+            days: 7
+        },
+    });
+
+    /*******************************************/
+    // Show Dropdowns
+    /*******************************************/
+    $('.showdropdowns').daterangepicker({
+        showDropdowns: true,
+    });
+
+    /*******************************************/
+    // Show Week Numbers
+    /*******************************************/
+    $('.showweeknumbers').daterangepicker({
+        showWeekNumbers: true,
+    });
+
+    /*******************************************/
+    // Date Ranges
+    /*******************************************/
+    $('.dateranges').daterangepicker({
+        ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+    });
+
+    /*******************************************/
+    // Always Show Calendar on Ranges
+    /*******************************************/
+    $('.shawCalRanges').daterangepicker({
+        ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        alwaysShowCalendars: true,
+    });
+
+    /*******************************************/
+    // Top of the form-control open alignment
+    /*******************************************/
+    $('.drops').daterangepicker({
+        drops: "up" // up/down
+    });
+
+    /*******************************************/
+    // Custom button options
+    /*******************************************/
+    $('.buttonClass').daterangepicker({
+        drops: "up",
+        buttonClasses: "btn",
+        applyClass: "btn-info",
+        cancelClass: "btn-danger"
+    });
+
+    /*******************************************/
+    // Language
+    /*******************************************/
+    $('.localeRange').daterangepicker({
+        ranges: {
+            "Aujourd'hui": [moment(), moment()],
+            'Hier': [moment().subtract('days', 1), moment().subtract('days', 1)],
+            'Les 7 derniers jours': [moment().subtract('days', 6), moment()],
+            'Les 30 derniers jours': [moment().subtract('days', 29), moment()],
+            'Ce mois-ci': [moment().startOf('month'), moment().endOf('month')],
+            'le mois dernier': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
+        },
+        locale: {
+            applyLabel: "Vers l'avant",
+            cancelLabel: 'Annulation',
+            startLabel: 'Date initiale',
+            endLabel: 'Date limite',
+            customRangeLabel: 'SÃ©lectionner une date',
+            // daysOfWeek: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi','Samedi'],
+            daysOfWeek: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'],
+            monthNames: ['Janvier', 'fÃ©vrier', 'Mars', 'Avril', 'ÐœÐ°i', 'Juin', 'Juillet', 'AoÃ»t', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
+            firstDay: 1
+        }
+    });
+    </script>
+    <script>
+    // Clock pickers
+    $('#single-input').clockpicker({
+        placement: 'bottom',
+        align: 'left',
+        autoclose: true,
+        'default': 'now'
+    });
+    $('.clockpicker').clockpicker({
+        donetext: 'Done',
+    }).find('input').change(function() {
+        console.log(this.value);
+    });
+    $('#check-minutes').click(function(e) {
+        // Have to stop propagation here
+        e.stopPropagation();
+        input.clockpicker('show').clockpicker('toggleView', 'minutes');
+    });
+    if (/mobile/i.test(navigator.userAgent)) {
+        $('input').prop('readOnly', true);
+    }
+    // Colorpicker
+    $(".colorpicker").asColorPicker();
+    $(".complex-colorpicker").asColorPicker({
+        mode: 'complex'
+    });
+    $(".gradient-colorpicker").asColorPicker({
+        mode: 'gradient'
+    });
+    // Date Picker
+    jQuery('.mydatepicker, #datepicker').datepicker();
+    jQuery('#datepicker-autoclose').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#date-range').datepicker({
+        toggleActive: true
+    });
+    jQuery('#datepicker-inline').datepicker({
+        todayHighlight: true
+    });
+    // Daterange picker
+    $('.input-daterange-datepicker').daterangepicker({
+        buttonClasses: ['btn', 'btn-sm'],
+        applyClass: 'btn-danger',
+        cancelClass: 'btn-inverse'
+    });
+    $('.input-daterange-timepicker').daterangepicker({
+        timePicker: true,
+        format: 'MM/DD/YYYY h:mm A',
+        timePickerIncrement: 30,
+        timePicker12Hour: true,
+        timePickerSeconds: false,
+        buttonClasses: ['btn', 'btn-sm'],
+        applyClass: 'btn-danger',
+        cancelClass: 'btn-inverse'
+    });
+    $('.input-limit-datepicker').daterangepicker({
+        format: 'MM/DD/YYYY',
+        minDate: '06/01/2015',
+        maxDate: '06/30/2015',
+        buttonClasses: ['btn', 'btn-sm'],
+        applyClass: 'btn-danger',
+        cancelClass: 'btn-inverse',
+        dateLimit: {
+            days: 6
+        }
+    });
+    </script>
+    <!-- ============================================================== -->
+
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="../assets/node_modules/styleswitcher/jQuery.style.switcher.js"></script>
